@@ -10,7 +10,12 @@ Projeto desenvolvido para ler contatos cadastrados no Supabase e enviar uma mens
 
 ## Configuração
 
-### 1. Criar o arquivo `.env`
+### 1. Criar as contas no Supabase e Z-API
+
+Criar uma conta no Supabase e obter a SUPABASE_URL e SUPABASE_KEY.
+Criar uma conta na Z-API, criar uma instância, conectar o WhatsApp e obter o ZAPI_INSTANCE_ID, ZAPI_TOKEN e ZAPI_CLIENT_TOKEN.
+
+### 2. Criar o arquivo `.env`
 
 ```env
 SUPABASE_URL=
@@ -22,7 +27,7 @@ ZAPI_CLIENT_TOKEN=
 
 ```
 
-### 2. Criar a tabela no Supabase
+### 3. Criar a tabela no Supabase e inserir contatos de exemplo
 
 ```sql
 CREATE TABLE contacts (
@@ -30,15 +35,22 @@ CREATE TABLE contacts (
     name TEXT NOT NULL,
     phone TEXT NOT NULL
 );
+
+INSERT INTO contacts (name, phone) 
+VALUES 
+('Contato 1', '5531999999999'), 
+('Contado 2', '5531888888888'), 
+('Contato 3', '5531777777777');
+
 ```
 
-### 3. Instalar dependências
+### 4. Instalar dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Executar
+### 5. Executar
 
 ```bash
 python main.py
